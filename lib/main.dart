@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:convert';
+import 'package:first_dart_web/widgets/get_data_button.dart';
 import 'package:flutter_web/material.dart';
 import 'package:http/http.dart' as http;
 
@@ -57,19 +58,20 @@ class MainPage extends StatelessWidget {
         appBar: AppBar(
           title: Text(title),
         ),
-        body: Center(
-          child: FutureBuilder<Post>(
-            future: post,
-            builder: (context, snapshot) {
-              if (snapshot.hasData) {
-                return Text(snapshot.data.title);
-              } else if (snapshot.hasError) {
-                return Text("${snapshot.error}");
-              }
-              return CircularProgressIndicator();
-            },
-          ),
-        ),
+        body: Center(child: new GetDataButton()),
+        // body: Center(
+        //   child: FutureBuilder<Post>(
+        //     future: post,
+        //     builder: (context, snapshot) {
+        //       if (snapshot.hasData) {
+        //         return Text(snapshot.data.title);
+        //       } else if (snapshot.hasError) {
+        //         return Text("${snapshot.error}");
+        //       }
+        //       return CircularProgressIndicator();
+        //     },
+        //   ),
+        // ),
       ),
     );
   }
